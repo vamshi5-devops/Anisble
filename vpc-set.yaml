@@ -3,7 +3,7 @@
   gather_facts: Flase
   tasks:
     - name: Import VPC Variables
-      Include_vars: vars/vpc_setup
+      include_vars: vars/vpc_setup
 
     - name: Create vprofile vpc
       ec2_vpc_net:
