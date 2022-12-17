@@ -146,3 +146,33 @@
           - dest: 0.0.0.0/0
             gateway_id: "{{ natGW_out.nat_gateway_id }}"
       register: private_route_out
+
+    - debug:
+        var: "{{item}}"
+      loop:
+        - vpcout.vpc.id
+        - pubsub1_out.subnet.id
+        - pubsub2_out.subnet.id
+        - pubsub3_out.subnet.id
+        - prisub1_out.subnet.id
+        - prisub2_out.subnet.id
+        - prisub3_out.subnet.id
+        - IGW_out.gateway_id
+        - public_route_out.route_table.id
+        - natGW_out.nat_gateway_id
+        - private_route_out.route_table.id
+
+    - set_fact:
+        vpcid: "{{vpcout.vpc.id}}"
+        pubsub1id: "{{pubsub1_out.subnet.id}}"
+        pubsub2id: "{{pubsub2_out.subnet.id}}"
+        pubsub3id: "{{pubsub3_out.subnet.id}}"
+        prisub1id: "{{prisub1_out.subnet.id}}"
+        prisub2id: "{{prisub2_out.subnet.id}}"
+        prisub3id: "{{prisub3_out.subnet.id}}"
+        igwid: "{{IGW_out.gateway_id}}"
+        pubRTid: "{{public_route_out.route_table.id}}"
+        NATGWid: "{{natGW_out.nat_gateway_id}}"
+        privRTid: "{{private_route_out.route_table.id}}"
+        cacheable: yes
+
