@@ -6,7 +6,7 @@
       include_vars: vars/bastion_setup
     
     - name: Import bastion setup
-      include_vars: vars/bastion_setup
+      include_vars: vars/output_varsID
 
     - name: create vprofile ec2 key
       ec2_key:
